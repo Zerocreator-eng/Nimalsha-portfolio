@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080c14">
+  <meta name="description"
+    content="Nimalsha Shiron is a freelance developer who fixes broken code, builds clean front-end websites, and automates Excel and data work with Python.">
+  <title>Nimalsha Shiron | Freelance Developer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Dark-only design: the brief asks for a dark, sleek look, so there is no light variant. */
+    :root {
+      --bg: #080c14;
+      --bg-2: #0e1420;
+      --line: #1a2234;
+      --line-2: #2a3550;
+      --text: #e7ebf3;
+      --muted: #8a94aa;
+      --soft: #c3cadb;
+      --accent: #9db8ff;
+      --accent-ink: #0a1230;
+
+      --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --font-body: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+      color-scheme: dark;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    html {
+      background: var(--bg);
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    ol,
+    dl,
+    dd {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 40px);
+    }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky;
+      top: env(safe-area-inset-top, 0px);
+      z-index: 20;
+      background: rgba(8, 12, 20, 0.82);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-in {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      height: 60px;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      margin-right: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .jump {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-2);
+      color: var(--muted);
+      border: 1px solid var(--line-2);
+      border-radius: 8px;
+      padding: 6px 8px 6px 12px;
+      font: inherit;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .jump:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    kbd {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text);
+      background: var(--line);
+      border-radius: 5px;
+      padding: 2px 6px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(72px, 12vw, 150px) 0 clamp(56px, 8vw, 96px);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(560px circle at var(--mx, 74%) var(--my, 14%), rgba(157, 184, 255, 0.14), transparent 65%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(var(--line-2) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-2) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(420px circle at var(--mx, 74%) var(--my, 14%), #000, transparent 72%);
+      mask-image: radial-gradient(420px circle at var(--mx, 74%) var(--my, 14%), #000, transparent 72%);
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2.5rem, 6.8vw, 5.6rem);
+      line-height: 1;
+      letter-spacing: -0.038em;
+      max-width: 17ch;
+      text-wrap: balance;
+    }
+
+    .lede {
+      margin-top: 32px;
+      max-width: 52ch;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      line-height: 1.55;
+    }
+
+    .actions {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8em 1.3em;
+      border-radius: 10px;
+      border: 1px solid var(--line-2);
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.2s, background-color 0.2s, filter 0.2s;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .btn.primary:hover {
+      filter: brightness(1.08);
+    }
+
+    .facts {
+      margin-top: clamp(56px, 9vw, 96px);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      border-top: 1px solid var(--line-2);
+      padding-top: 24px;
+    }
+
+    .facts dt {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    .facts dd {
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 8px;
+      vertical-align: 1px;
+    }
+
+    /* One orchestrated page-load moment */
+    .rise {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+      animation-delay: calc(var(--i, 0) * 90ms + 80ms);
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ---------- Sections ---------- */
+    .section {
+      border-top: 1px solid var(--line);
+      padding: clamp(64px, 9vw, 120px) 0;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 48px;
+    }
+
+    .section-head {
+      align-self: start;
+      position: sticky;
+      top: calc(env(safe-area-inset-top, 0px) + 92px);
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    /* Services */
+    .svc-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .svc {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+      gap: 32px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .svc h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .svc p {
+      color: var(--soft);
+      max-width: 56ch;
+    }
+
+    .tasks {
+      margin-top: 18px;
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .tasks li {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .tasks li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 10px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .price {
+      margin-top: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .price strong {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .price span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .price-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 58ch;
+    }
+
+    /* Process */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 32px;
+    }
+
+    .steps li {
+      border-top: 1px solid var(--line-2);
+      padding-top: 20px;
+    }
+
+    .step-n {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .steps h3 {
+      margin-top: 10px;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+
+    .steps p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    /* Projects */
+    .work {
+      border-top: 1px solid var(--line);
+    }
+
+    .proj {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proj summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      align-items: baseline;
+      gap: 4px 20px;
+      padding: 26px 0;
+      grid-template-columns: 96px minmax(0, 1fr) minmax(0, 1.1fr) 20px;
+      grid-template-areas: "kind name what plus";
+    }
+
+    .proj summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .proj .kind {
+      grid-area: kind;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .proj .name {
+      grid-area: name;
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      transition: color 0.2s;
+    }
+
+    .proj .what {
+      grid-area: what;
+      color: var(--muted);
+    }
+
+    .proj summary:hover .name {
+      color: var(--accent);
+    }
+
+    .plus {
+      grid-area: plus;
+      position: relative;
+      width: 14px;
+      height: 14px;
+      align-self: center;
+      justify-self: end;
+    }
+
+    .plus::before,
+    .plus::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 14px;
+      height: 1.5px;
+      margin-top: -0.75px;
+      background: var(--muted);
+      transition: transform 0.25s;
+    }
+
+    .plus::after {
+      transform: rotate(90deg);
+    }
+
+    .proj[open] .plus::after {
+      transform: rotate(0deg);
+    }
+
+    .detail {
+      padding: 0 0 32px 116px;
+      max-width: 48rem;
+    }
+
+    .shot {
+      margin: 0 0 22px;
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--line-2);
+      background: var(--bg-2);
+    }
+
+    .shot figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .detail p {
+      color: var(--soft);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .tags li {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 4px 9px;
+      border: 1px solid var(--line-2);
+      border-radius: 4px;
+      color: var(--muted);
+    }
+
+    .plinks {
+      display: flex;
+      gap: 22px;
+    }
+
+    .plinks a {
+      color: var(--accent);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+    }
+
+    .plinks a:hover {
+      filter: brightness(1.15);
+    }
+
+    /* About */
+    .about-top {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: 50% 30%;
+      border-radius: 14px;
+      border: 1px solid var(--line-2);
+      background: var(--bg-2);
+      display: block;
+    }
+
+    .about-text {
+      max-width: 58ch;
+      display: grid;
+      gap: 18px;
+      font-size: 1.12rem;
+      color: #d3d9e6;
+    }
+
+    .rows {
+      margin-top: 56px;
+      border-top: 1px solid var(--line);
+    }
+
+    .rows>div {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rows dt {
+      color: var(--muted);
+    }
+
+    .rows dd {
+      color: var(--text);
+    }
+
+    .rows dd span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .rows-title {
+      margin-top: 56px;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .rows-title+.rows {
+      margin-top: 16px;
+    }
+
+    /* Contact */
+    .contact-lede {
+      color: var(--muted);
+      max-width: 46ch;
+      margin-bottom: 28px;
+    }
+
+    .email {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.5rem, 4.6vw, 3.3rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      overflow-wrap: anywhere;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-repeat: no-repeat;
+      background-size: 100% 2px;
+      background-position: 0 100%;
+      padding-bottom: 6px;
+      transition: color 0.2s;
+    }
+
+    .email:hover {
+      color: var(--accent);
+    }
+
+    .contact-actions {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .elsewhere {
+      margin-top: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      color: var(--muted);
+    }
+
+    .elsewhere a {
+      transition: color 0.2s;
+    }
+
+    .elsewhere a:hover {
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .foot-in {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    /* ---------- Jump palette ---------- */
+    .palette {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 14vh 16px 16px;
+      background: rgba(4, 7, 12, 0.7);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+
+    .palette-box {
+      width: 100%;
+      max-width: 520px;
+      background: var(--bg-2);
+      border: 1px solid var(--line-2);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    }
+
+    .palette input {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--line-2);
+      color: var(--text);
+      font: inherit;
+      padding: 16px 18px;
+      outline: none;
+    }
+
+    .palette input::placeholder {
+      color: var(--muted);
+    }
+
+    .palette ul {
+      max-height: 320px;
+      overflow-y: auto;
+      padding: 6px;
+    }
+
+    .palette li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .palette li small {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      align-self: center;
+    }
+
+    .palette li[aria-selected="true"] {
+      background: var(--line);
+    }
+
+    .palette .empty {
+      padding: 14px 12px;
+      color: var(--muted);
+      cursor: default;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+      transform: translate(-50%, 12px);
+      background: var(--text);
+      color: var(--bg);
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 60;
+      max-width: calc(100% - 32px);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .section-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+      }
+
+      .section-head {
+        position: static;
+      }
+
+      .facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      .hide-md {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .jump {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .svc {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .proj summary {
+        grid-template-columns: minmax(0, 1fr) 20px;
+        grid-template-areas: "kind plus" "name name" "what what";
+      }
+
+      .detail {
+        padding-left: 0;
+      }
+
+      .about-top {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      .portrait {
+        max-width: 220px;
+      }
+
+      .rows>div {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .rise {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="#top">Nimalsha Shiron</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a class="hide-md" href="#projects">Projects</a>
+        <a class="hide-md" href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="jump" id="open-palette" type="button" aria-haspopup="dialog">Jump to <kbd id="kbd">Ctrl
+          K</kbd></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="wrap">
+        <h1 class="rise" style="--i:0">Nimalsha Shiron fixes broken code and builds clean websites.</h1>
+        <p class="lede rise" style="--i:1">Freelance developer for hire. I debug and correct faulty code, build
+          responsive front-end websites, and use Python to take the manual work out of Excel and data tasks.</p>
+        <div class="actions rise" style="--i:2">
+          <a class="btn primary" href="mailto:shinimalsha99@gmail.com?subject=Project%20enquiry">Start a project</a>
+          <a class="btn" href="#projects">View projects</a>
+        </div>
+        <dl class="facts rise" style="--i:3">
+          <div>
+            <dt>Role</dt>
+            <dd>Freelance developer</dd>
+          </div>
+          <div>
+            <dt>Studying</dt>
+            <dd>Software Engineering, OUSL</dd>
+          </div>
+          <div>
+            <dt>Works with</dt>
+            <dd>JavaScript, Python, Vue.js</dd>
+          </div>
+          <div>
+            <dt>Availability</dt>
+            <dd><span class="dot" aria-hidden="true"></span>Open to remote projects</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2>What I can help with</h2>
+        </div>
+        <div>
+          <ul class="svc-list">
+            <li class="svc">
+              <div>
+                <h3>Debugging and code fixes</h3>
+                <div class="price"><strong>From $15</strong><span>per issue</span></div>
+              </div>
+              <div>
+                <p>Something is broken, throwing errors, or behaving strangely. I find the cause, correct it, and tell
+                  you what went wrong so it stays fixed.</p>
+                <ul class="tasks">
+                  <li>JavaScript errors and broken page behavior</li>
+                  <li>Python scripts that crash or return wrong results</li>
+                  <li>Layouts that break on some screens</li>
+                  <li>Code that works but is hard to read or extend</li>
+                </ul>
+              </div>
+            </li>
+            <li class="svc">
+              <div>
+                <h3>Front-end websites</h3>
+                <div class="price"><strong>From $80</strong><span>for a one-page site</span></div>
+              </div>
+              <div>
+                <p>Clean, responsive websites built with HTML, CSS, JavaScript, and Vue.js, from a simple business page
+                  to an interactive web app.</p>
+                <ul class="tasks">
+                  <li>Landing pages and portfolio sites</li>
+                  <li>Forms with validation and clear feedback</li>
+                  <li>Interactive features and Vue.js components</li>
+                  <li>Mobile-friendly layouts</li>
+                </ul>
+              </div>
+            </li>
+            <li class="svc">
+              <div>
+                <h3>Data handling and Excel automation</h3>
+                <div class="price"><strong>From $25</strong><span>per script</span></div>
+              </div>
+              <div>
+                <p>Python scripts that replace repetitive spreadsheet work, so a task that takes an hour by hand runs in
+                  seconds.</p>
+                <ul class="tasks">
+                  <li>Cleaning and reformatting messy Excel and CSV data</li>
+                  <li>Combining several files into one</li>
+                  <li>Generating summaries and reports automatically</li>
+                  <li>Querying databases with SQL</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <p class="price-note">Prices are starting points in US dollars. Once you send the details, I'll give you a
+            fixed quote before any work begins.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2>How it works</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-n">1</span>
+            <h3>Tell me the problem</h3>
+            <p>Send a short description, screenshots, or the code. I'll reply with questions or a plan.</p>
+          </li>
+          <li>
+            <span class="step-n">2</span>
+            <h3>Agree the scope</h3>
+            <p>You get a clear description of what I'll do and how long it should take, before I start.</p>
+          </li>
+          <li>
+            <span class="step-n">3</span>
+            <h3>Get the finished work</h3>
+            <p>I deliver tested work with notes on what changed, and fix anything that doesn't behave as agreed.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2>Projects</h2>
+        </div>
+        <ul class="work">
+          <li>
+            <details class="proj" open>
+              <summary>
+                <span class="kind">In progress</span>
+                <span class="name">Project Shadow</span>
+                <span class="what">3D game built in Godot 4</span>
+                <span class="plus" aria-hidden="true"></span>
+              </summary>
+              <div class="detail">
+                <figure class="shot">
+                  <img src="assets/project-shadow.jpg"
+                    alt="Screenshot of Project Shadow: a small white robot on a blue tiled platform with coins, larger robot enemies with health bars, and a coin counter and status bar at the top left."
+                    width="1000" height="565" loading="lazy">
+                  <figcaption>Work in progress</figcaption>
+                </figure>
+                <p>A 3D game I'm building in Godot 4. You control a small robot, collect coins, and face larger robot
+                  enemies across floating platforms. It's where I practise game logic, scenes, and problem-solving
+                  outside of client work.</p>
+                <ul class="tags">
+                  <li>Godot 4</li>
+                  <li>3D</li>
+                  <li>Game development</li>
+                </ul>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details class="proj">
+              <summary>
+                <span class="kind">Website</span>
+                <span class="name">University website</span>
+                <span class="what">Built with HTML, CSS, JavaScript, and Vue.js</span>
+                <span class="plus" aria-hidden="true"></span>
+              </summary>
+              <div class="detail">
+                <p>A website I built for my university using HTML, CSS, JavaScript, and Vue.js. It shows how I take a
+                  real brief and turn it into a working, structured site.</p>
+                <ul class="tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Vue.js</li>
+                </ul>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details class="proj">
+              <summary>
+                <span class="kind">Live site</span>
+                <span class="name">Nexus Life</span>
+                <span class="what">Published on GitHub Pages</span>
+                <span class="plus" aria-hidden="true"></span>
+              </summary>
+              <div class="detail">
+                <p>A web project I've published online, so you can open it and try it yourself.</p>
+                <ul class="tags">
+                  <li>Web</li>
+                  <li>GitHub Pages</li>
+                </ul>
+                <div class="plinks"><a href="https://zerocreator-eng.github.io/nexus-life/" target="_blank"
+                    rel="noopener noreferrer">Open live site</a></div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details class="proj">
+              <summary>
+                <span class="kind">Python</span>
+                <span class="name">Data and Excel scripts</span>
+                <span class="what">Small tools that save manual work</span>
+                <span class="plus" aria-hidden="true"></span>
+              </summary>
+              <div class="detail">
+                <p>Python programs I write to speed up spreadsheet and data tasks, backed by SQL and database
+                  coursework. This is the same kind of work I take on for clients.</p>
+                <ul class="tags">
+                  <li>Python</li>
+                  <li>Excel</li>
+                  <li>SQL</li>
+                </ul>
+                <div class="plinks"><a href="https://github.com/Zerocreator-eng" target="_blank"
+                    rel="noopener noreferrer">Browse my GitHub</a></div>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2>About</h2>
+        </div>
+        <div>
+          <div class="about-top">
+            <img class="portrait" src="assets/photo.jpg" alt="Portrait of Nimalsha Shiron" width="394" height="365">
+            <div class="about-text">
+              <p>I'm a Software Engineering undergraduate at the Open University of Sri Lanka, taking on freelance work
+                in web development, debugging, and data automation.</p>
+              <p>I also hold a Diploma in Human Resource Management from the University of Colombo, so I'm comfortable
+                working with clients who aren't technical. I care about clear communication, readable code, and work
+                that's tested before I hand it over.</p>
+            </div>
+          </div>
+
+          <h3 class="rows-title">Education</h3>
+          <dl class="rows">
+            <div>
+              <dt>2025 to now</dt>
+              <dd>Bachelor of Software Engineering<span>The Open University of Sri Lanka (OUSL)</span></dd>
+            </div>
+            <div>
+              <dt>Completed</dt>
+              <dd>Diploma in Human Resource Management<span>University of Colombo</span></dd>
+            </div>
+          </dl>
+
+          <h3 class="rows-title">Skills</h3>
+          <dl class="rows">
+            <div>
+              <dt>Languages</dt>
+              <dd>JavaScript, Python, SQL</dd>
+            </div>
+            <div>
+              <dt>Front end</dt>
+              <dd>HTML, CSS, Vue.js</dd>
+            </div>
+            <div>
+              <dt>Data</dt>
+              <dd>Python scripts for Excel and data tasks, SQL queries</dd>
+            </div>
+            <div>
+              <dt>Tools</dt>
+              <dd>Git, GitHub</dd>
+            </div>
+            <div>
+              <dt>Also</dt>
+              <dd>Godot 4, Blender</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap section-grid">
+        <div class="section-head">
+          <h2>Contact</h2>
+        </div>
+        <div>
+          <p class="contact-lede">Have a bug to fix, a site to build, or a spreadsheet task to automate? Send me a short
+            description and I'll get back to you.</p>
+          <a class="email" id="email"
+            href="mailto:shinimalsha99@gmail.com?subject=Project%20enquiry">shinimalsha99@gmail.com</a>
+          <div class="contact-actions">
+            <button class="btn primary" id="copy-email" type="button">Copy email</button>
+            <a class="btn" id="dl-cv" href="assets/Nimalsha-Shiron-CV.pdf" download>Download CV</a>
+          </div>
+          <div class="elsewhere">
+            <a href="https://github.com/Zerocreator-eng" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/nimalsha-gunarathne-886027223/" target="_blank"
+              rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-in">
+      <span>&copy; 2026 Nimalsha Shiron</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Jump to">
+    <div class="palette-box">
+      <input id="pq" type="text" placeholder="Jump to a section or action" autocomplete="off"
+        aria-label="Jump to a section or action">
+      <ul id="plist" role="listbox" aria-label="Results"></ul>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      var EMAIL = 'shinimalsha99@gmail.com';
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* Keyboard hint matches the platform */
+      var isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent || '');
+      document.getElementById('kbd').textContent = isMac ? '\u2318K' : 'Ctrl K';
+
+      /* Grid + light follow the pointer in the hero */
+      var hero = document.getElementById('hero');
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        hero.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        hero.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+
+      /* Toast */
+      var toast = document.getElementById('toast');
+      var toastTimer;
+      function say(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {toast.classList.remove('show');}, 2200);
+      }
+
+      /* Copy email */
+      function legacyCopy() {
+        var ta = document.createElement('textarea');
+        ta.value = EMAIL; ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        var ok = false;
+        try {ok = document.execCommand('copy');} catch (e) { }
+        document.body.removeChild(ta);
+        return ok;
+      }
+      function copyEmail() {
+        function done(ok) {say(ok ? 'Email copied' : 'Could not copy. Select the address instead.');}
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(EMAIL).then(function () {done(true);}, function () {done(legacyCopy());});
+            return;
+          }
+        } catch (e) { }
+        done(legacyCopy());
+      }
+      document.getElementById('copy-email').addEventListener('click', copyEmail);
+
+      /* Jump palette */
+      var palette = document.getElementById('palette');
+      var input = document.getElementById('pq');
+      var list = document.getElementById('plist');
+      var opener = document.getElementById('open-palette');
+      var lastFocus = null;
+      var active = 0;
+      var shown = [];
+
+      function go(sel) {
+        var el = document.querySelector(sel);
+        if (el) el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+      }
+      function ext(url) {window.open(url, '_blank', 'noopener');}
+
+      function allItems() {
+        var items = [
+          {t: 'Services', k: 'Go to', run: function () {go('#services');}},
+          {t: 'How it works', k: 'Go to', run: function () {go('#process');}},
+          {t: 'Projects', k: 'Go to', run: function () {go('#projects');}},
+          {t: 'About, education and skills', k: 'Go to', run: function () {go('#about');}},
+          {t: 'Contact', k: 'Go to', run: function () {go('#contact');}},
+          {t: 'Copy email address', k: 'Action', run: copyEmail}
+        ];
+        items.push({t: 'Open CV (PDF)', k: 'Link', run: function () {ext('assets/Nimalsha-Shiron-CV.pdf');}});
+        items.push({t: 'Open GitHub', k: 'Link', run: function () {ext('https://github.com/Zerocreator-eng');}});
+        items.push({t: 'Open LinkedIn', k: 'Link', run: function () {ext('https://www.linkedin.com/in/nimalsha-gunarathne-886027223/');}});
+        return items;
+      }
+
+      function render() {
+        var q = input.value.trim().toLowerCase();
+        shown = allItems().filter(function (i) {return i.t.toLowerCase().indexOf(q) !== -1;});
+        if (active >= shown.length) active = 0;
+        list.innerHTML = '';
+        if (!shown.length) {
+          var li = document.createElement('li');
+          li.className = 'empty';
+          li.textContent = 'Nothing matches. Try "projects" or "email".';
+          list.appendChild(li);
+          return;
+        }
+        shown.forEach(function (item, idx) {
+          var li = document.createElement('li');
+          li.setAttribute('role', 'option');
+          li.setAttribute('aria-selected', idx === active ? 'true' : 'false');
+          var s = document.createElement('span'); s.textContent = item.t;
+          var k = document.createElement('small'); k.textContent = item.k;
+          li.appendChild(s); li.appendChild(k);
+          li.addEventListener('click', function () {choose(idx);});
+          list.appendChild(li);
+        });
+      }
+      function choose(idx) {
+        var item = shown[idx];
+        if (!item) return;
+        closePalette();
+        item.run();
+      }
+      function openPalette() {
+        lastFocus = document.activeElement;
+        palette.hidden = false;
+        input.value = '';
+        active = 0;
+        render();
+        input.focus();
+      }
+      function closePalette() {
+        palette.hidden = true;
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      opener.addEventListener('click', openPalette);
+      input.addEventListener('input', function () {active = 0; render();});
+      palette.addEventListener('mousedown', function (e) {if (e.target === palette) closePalette();});
+
+      document.addEventListener('keydown', function (e) {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          if (palette.hidden) openPalette(); else closePalette();
+          return;
+        }
+        if (palette.hidden) return;
+        if (e.key === 'Escape') {e.preventDefault(); closePalette();}
+        else if (e.key === 'ArrowDown') {e.preventDefault(); if (shown.length) {active = (active + 1) % shown.length; render();} }
+        else if (e.key === 'ArrowUp') {e.preventDefault(); if (shown.length) {active = (active - 1 + shown.length) % shown.length; render();} }
+        else if (e.key === 'Enter') {e.preventDefault(); choose(active);}
+        else if (e.key === 'Tab') {e.preventDefault();}
+      });
+    })();
+  </script>
+</body>
+
+</html>
